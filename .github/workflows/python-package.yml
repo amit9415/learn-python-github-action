@@ -20,4 +20,6 @@ jobs:
       - name: Display Python version
         env : 
            APP_NAME: ${{ secrets.APP_NAME }} 
+           VARIABLE_1: ${{ vars.VARIABLE_1 }} 
+           ENVIROMENT_1: ${{ env.ENVIROMENT_1 }} 
         run: python ./test.py
