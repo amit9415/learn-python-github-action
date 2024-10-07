@@ -1,0 +1,29 @@
+name: Python package
+
+on: 
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '30 5,17 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        env : 
+           APP_NAME: ${{ secrets.APP_NAME }} 
+           VARIABLE_1: ${{ vars.VARIABLE_1 }} 
+           ENVIROMENT_1: ${{ env.ENVIROMENT_1 }} 
+        run: 
+          python ./test.py
