@@ -1,6 +1,11 @@
 name: Python package
 
-on: [push]
+on: 
+ workflow_dispatch:
+    inputs:
+      myInput:
+        description: 'User Input Here'
+        required: false
 
 jobs:
   build:
@@ -18,4 +23,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
       # You can test your matrix by printing the current Python version
       - name: Display Python version
-        run: python ./test.py 
+        env : 
+           APP_NAME: ${{ secrets.APP_NAME }} 
+           VARIABLE_1: ${{ vars.VARIABLE_1 }} 
+           ENVIROMENT_1: ${{ env.ENVIROMENT_1 }} 
+        run: 
+          python ./test.py
