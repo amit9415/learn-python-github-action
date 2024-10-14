@@ -10,7 +10,7 @@ on:
 jobs:
   DEV:
     runs-on: ubuntu-latest
-    environment: PROD
+    environment: DEV
 
      
     strategy:
