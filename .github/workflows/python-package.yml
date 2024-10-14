@@ -30,6 +30,6 @@ jobs:
           VARIABLE_1: ${{ vars.VARIABLE_1 }} 
           ENVIROMENT_1: ${{ env.ENVIROMENT_1 }} 
           ENVIRONMENT_NAME: ${{ vars.ENVIRONMENT_NAME}} 
-           
+          ENVIROMENT_SECRET_1 : ${{ secrets.ENVIROMENT_SECRET_1}} 
         run: 
           python ./test.py
