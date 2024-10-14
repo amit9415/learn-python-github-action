@@ -8,8 +8,7 @@ on:
         required: false
 
 jobs:
-  build:
-
+  DEV:
     runs-on: ubuntu-latest
     environment: DEV
     
