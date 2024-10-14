@@ -11,11 +11,7 @@ jobs:
   DEV:
     runs-on: ubuntu-latest
     environment: PROD
-    env : 
-      APP_NAME: ${{ secrets.APP_NAME }} 
-      VARIABLE_1: ${{ vars.VARIABLE_1 }} 
-      ENVIROMENT_1: ${{ env.ENVIROMENT_1 }} 
-      ENVIRONMENT_NAME: ${{ env.ENVIRONMENT_NAME}} 
+
      
     strategy:
       matrix:
@@ -29,7 +25,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       # You can test your matrix by printing the current Python version
       - name: Display Python version
-      
+        env : 
+          APP_NAME: ${{ secrets.APP_NAME }} 
+          VARIABLE_1: ${{ vars.VARIABLE_1 }} 
+          ENVIROMENT_1: ${{ env.ENVIROMENT_1 }} 
+          ENVIRONMENT_NAME: ${{ env.ENVIRONMENT_NAME}} 
            
         run: 
           python ./test.py
