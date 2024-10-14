@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     environment: DEV
-    needs : DEV
+    
     strategy:
       matrix:
         python-version: ["3.12"]
